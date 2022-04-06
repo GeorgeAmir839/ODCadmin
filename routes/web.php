@@ -18,6 +18,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::resource('categories', 'CategoryController');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/{page}', 'AdminController@index');
+Route::middleware('auth')->group(function () {
+    Route::resource('categories', 'CategoryController');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/{page}', 'AdminController@index');
+});
+

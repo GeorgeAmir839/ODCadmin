@@ -7,6 +7,11 @@
     <link href="{{ URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
+
+
+    {{-- models --}}
+    <!---Internal Owl Carousel css-->
+
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
@@ -27,7 +32,9 @@
 
 
         <!--/div-->
-
+        <div class="col-sm-6 col-md-4 col-xl-3 text-md-right m-2">
+            <a class="modal-effect btn btn-primary btn-block" data-effect="effect-scale" data-toggle="modal" href="#modaldemo1">Add New Category</a>
+        </div>
 
         <!--div-->
         <div class="col-xl-12">
@@ -68,6 +75,41 @@
         </div>
     </div>
     <!-- /row -->
+    <!-- Basic modal -->
+		<div class="modal" id="modaldemo1">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content modal-content-demo">
+					<div class="modal-header">
+                        <h6 class="modal-title">Add New Category</h6><button aria-label="Close" class="close" data-dismiss="modal"
+                            type="button"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('categories.store') }}" method="post">
+                            {{ csrf_field() }}
+    
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Name</label>
+                                <input type="text" class="form-control" id="section_name" name="name">
+                            </div>
+                            <label class="form-group">
+                                <input type="checkbox" class="form-control" id="section_name" name="active" checked>
+                                <span></span>
+                            </label>
+                            {{-- <div class="form-group">
+                                <label for="exampleFormControlTextarea1">ملاحظات</label>
+                                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            </div> --}}
+    
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">تاكيد</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                            </div>
+                        </form>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<!-- End Basic modal -->
     </div>
     <!-- Container closed -->
     </div>
@@ -93,4 +135,7 @@
     <script src="{{ URL::asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js') }}"></script>
     <!--Internal  Datatable js -->
     <script src="{{ URL::asset('assets/js/table-data.js') }}"></script>
+
+<!-- Internal Modal js-->
+<script src="{{URL::asset('assets/js/modal.js')}}"></script>
 @endsection
