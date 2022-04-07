@@ -22,7 +22,7 @@ class CreateRevisionTable extends Migration
             $table->foreignId('exam_id')->constrained()->references('id')->on('exams')
             ->nullable()->onDelete('cascade')
             ->onUpdate('cascade'); 
-            $table->foreignId('student_id')->constrained()->references('id')->on('students')
+            $table->foreignId('student_id')->constrained()->references('id')->on('users')
             ->nullable()->onDelete('cascade')
             ->onUpdate('cascade'); 
             $table->timestamps();

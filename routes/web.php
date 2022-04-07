@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes(['register' => false]);
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -22,5 +22,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('categories', 'CategoryController');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/{page}', 'AdminController@index');
+});
+Route::group(['middleware' => ['permission:app-settings']], function () {
+   
 });
 

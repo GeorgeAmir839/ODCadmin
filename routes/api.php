@@ -21,6 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('login', 'API\UserController@login');
 // Route::post('login', [UserController::class, 'login']);
 Route::post('register', 'API\UserController@register');
+/************Api student*************/
+Route::post('loginStudent', 'API\StudentController@login');
+Route::post('registerStudent', 'API\StudentController@register');
+Route::post('logoutStudent', 'API\StudentController@logout');
 Route::middleware('auth:api')->group(function () { 
     Route::apiResource('categories', 'API\CategoryController');
 });
