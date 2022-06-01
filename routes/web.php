@@ -19,7 +19,9 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::middleware('auth')->group(function () {
-    Route::resource('categories', 'CategoryController');
+    // Route::resource('categories', 'CategoryController');
+    Route::resource('exercises', 'ExercisesController');
+
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/{page}', 'AdminController@index');
 });
