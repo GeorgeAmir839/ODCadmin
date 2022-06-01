@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
-use App\Http\Controllers\Api\ApiResponseTrait;
+use App\Http\Controllers\API\ApiResponseTrait;
 
 class CourseController extends Controller
 {
@@ -16,10 +16,11 @@ class CourseController extends Controller
     
     public function index()
     {
-        $categories = Course::with('category')->get();
-        return $this->apiResponse($categories,'success',200);
+        // dd("D");
+        $courses = Course::all();
+        return $this->apiResponse($courses,'success',200);
     }
-
+    
     
     /**
      * Display the specified resource.
@@ -29,12 +30,12 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        $Course = Course::with('category')->find($id);
+        // $Course = Course::with('category')->find($id);
         
-        if($Course)
-        {
-            return $this->apiResponse($Course,'success',200);
-        }
+        // if($Course)
+        // {
+        //     return $this->apiResponse($Course,'success',200);
+        // }
 
         return $this->apiResponse(null,'The Course Not Found',404);
     }

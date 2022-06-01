@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Models\Enroll;
+use App\Http\Controllers\API\ApiResponseTrait;
 use Illuminate\Http\Request;
 use App\Models\studentcourc;
 
-use App\Http\Controllers\Api\ApiResponseTrait;
+
 
 class EnrollController extends Controller
 {

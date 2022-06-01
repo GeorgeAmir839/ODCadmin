@@ -24,9 +24,9 @@ class Student extends Model implements Authenticatable
     //     'college',
     //     'email_verified_at',
     // ];
-    public function courses()
+    public function studentCourses()
     {
-        return $this->hasMany(Course::class);
+        return $this->hasMany(studentCourses::class,'student_id','id');
     }
     public function revisions()
     {

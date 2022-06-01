@@ -34,7 +34,7 @@ return [
     | Supported: "session"
     |
     */
-
+   
     'guards' => [
         'web' => [
             'driver' => 'session',
@@ -45,6 +45,7 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        
         'student' => [
             'driver' => 'passport',
             'provider' => 'students',

@@ -23,8 +23,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('phone_verified_at')->nullable();
             $table->string('password');
-            $table->string('college');
-            $table->string('address');
+            $table->string('college')->nullable();
+            $table->string('address')->nullable();
             $table->string('device_token')->nullable();
             $table->text('verification_code')->nullable();
             $table->boolean('verified')->default(0);

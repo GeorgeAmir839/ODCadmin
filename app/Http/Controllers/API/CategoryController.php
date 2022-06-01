@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\categoryCollection;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Http\Controllers\API\ApiResponseTrait;
 class CategoryController extends Controller
 {
+    use ApiResponseTrait;
     /**
      * Display a listing of the resource.
      *
